@@ -1,74 +1,126 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  ImageBackground,
+  ScrollView,
+  Button,
+  Pressable,
+  Modal,
+} from "react-native";
+import React from "react";
+import logoImage from "../../assets/images/adaptive-icon.png";
+// import { ScrollView } from "react-native-gesture-handler";
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
-export default function HomeScreen() {
+const index = () => {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
-  );
-}
+    <View style={{ flex: 1, backgroundColor: "#004e4e", padding: 60 }}>
+      {/* <View style={{width: 200, height: 300, backgroundColor: "#3e3e3e"}}></View>
+      <Text style={{padding: 60}}>index <Text style={{color:"white", padding: 50}}>Nested text</Text></Text>
+      <Image source={{uri: 'https://ca.slack-edge.com/T05R6LXN7J8-U06R7GRBJSD-0bb90b6f36d1-512'}} style={{width: 200, height: 200}}/> */}
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
+      {/* adding image background */}
+      {/* <ImageBackground source={logoImage} style={{flex: 1}}>
+        <Text style={{padding: }}>this is the home page</Text>
+      </ImageBackground> */}
+
+      {/* addgin scrollview */}
+
+      {/* <ScrollView>
+        <Text>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut excepturi
+          veritatis facilis exercitationem voluptates perferendis corrupti
+          libero debitis odit maxime eveniet, deserunt ullam hic error fugiat
+          cumque laborum, amet reprehenderit? Sunt eum, quidem, placeat
+          recusandae voluptas aperiam tempora, nemo neque sequi ullam iusto quas
+          reprehenderit. Illum non ipsam saepe? Non cumque dolorum aliquid totam
+          aspernatur placeat rerum vel, veritatis error. Possimus soluta
+          reiciendis, sequi praesentium provident, excepturi nam odit impedit
+          commodi, nemo et suscipit! Earum libero et nulla sint animi officiis,
+          quos incidunt recusandae eveniet explicabo quia, ipsa quam molestiae?
+          Voluptatem, omnis dolor, eaque modi fugiat corrupti aspernatur ad,
+          suscipit odio et quidem provident tempore quos. Repudiandae vel
+          repellendus aperiam quidem odio repellat cupiditate, asperiores quasi,
+          necessitatibus, voluptas non quae. Quibusdam, autem. Facere sit
+          officia rem quas eligendi, saepe reprehenderit libero fugiat quia
+          odit, ipsum ratione optio corrupti esse necessitatibus dolore?
+          Repellat quia dicta corporis nam accusamus maiores obcaecati velit!
+          Neque quidem libero iste asperiores voluptates optio consectetur
+          perferendis sed dolorem tempora voluptatibus possimus aperiam
+          voluptas, aut delectus eius. Sapiente iste rem autem nihil repellendus
+          ut iure id aut at?
+        </Text>
+        <Image source={logoImage} style={{ height: 200, width: 200 }} />
+        <Text>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut excepturi
+          veritatis facilis exercitationem voluptates perferendis corrupti
+          libero debitis odit maxime eveniet, deserunt ullam hic error fugiat
+          cumque laborum, amet reprehenderit? Sunt eum, quidem, placeat
+          recusandae voluptas aperiam tempora, nemo neque sequi ullam iusto quas
+          reprehenderit. Illum non ipsam saepe? Non cumque dolorum aliquid totam
+          aspernatur placeat rerum vel, veritatis error. Possimus soluta
+          reiciendis, sequi praesentium provident, excepturi nam odit impedit
+          commodi, nemo et suscipit! Earum libero et nulla sint animi officiis,
+          quos incidunt recusandae eveniet explicabo quia, ipsa quam molestiae?
+          Voluptatem, omnis dolor, eaque modi fugiat corrupti aspernatur ad,
+          suscipit odio et quidem provident tempore quos. Repudiandae vel
+          repellendus aperiam quidem odio repellat cupiditate, asperiores quasi,
+          necessitatibus, voluptas non quae. Quibusdam, autem. Facere sit
+          officia rem quas eligendi, saepe reprehenderit libero fugiat quia
+          odit, ipsum ratione optio corrupti esse necessitatibus dolore?
+          Repellat quia dicta corporis nam accusamus maiores obcaecati velit!
+          Neque quidem libero iste asperiores voluptates optio consectetur
+          perferendis sed dolorem tempora voluptatibus possimus aperiam
+          voluptas, aut delectus eius. Sapiente iste rem autem nihil repellendus
+          ut iure id aut at?
+        </Text>
+        <Image source={logoImage} style={{ height: 200, width: 200 }} />
+        <Text>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut excepturi
+          veritatis facilis exercitationem voluptates perferendis corrupti
+          libero debitis odit maxime eveniet, deserunt ullam hic error fugiat
+          cumque laborum, amet reprehenderit? Sunt eum, quidem, placeat
+          recusandae voluptas aperiam tempora, nemo neque sequi ullam iusto quas
+          reprehenderit. Illum non ipsam saepe? Non cumque dolorum aliquid totam
+          aspernatur placeat rerum vel, veritatis error. Possimus soluta
+          reiciendis, sequi praesentium provident, excepturi nam odit impedit
+          commodi, nemo et suscipit! Earum libero et nulla sint animi officiis,
+          quos incidunt recusandae eveniet explicabo quia, ipsa quam molestiae?
+          Voluptatem, omnis dolor, eaque modi fugiat corrupti aspernatur ad,
+          suscipit odio et quidem provident tempore quos. Repudiandae vel
+          repellendus aperiam quidem odio repellat cupiditate, asperiores quasi,
+          necessitatibus, voluptas non quae. Quibusdam, autem. Facere sit
+          officia rem quas eligendi, saepe reprehenderit libero fugiat quia
+          odit, ipsum ratione optio corrupti esse necessitatibus dolore?
+          Repellat quia dicta corporis nam accusamus maiores obcaecati velit!
+          Neque quidem libero iste asperiores voluptates optio consectetur
+          perferendis sed dolorem tempora voluptatibus possimus aperiam
+          voluptas, aut delectus eius. Sapiente iste rem autem nihil repellendus
+          ut iure id aut at?
+        </Text>
+      </ScrollView> */}
+
+      {/* Button componenet: note that it is a self closing tag */}
+
+      <Button
+        title="press"
+        onPress={() => {
+          console.log("button pressed");
+        }}
+        color="midnightblue"
+        disabled
+      />
+
+      {/* using pressable  */}
+      <Pressable
+        onPress={() => console.log("Image pressed")}
+        onPressOut={() => console.log("pressing out")}
+        onLongPress={() => console.log("pressed for more than 500ms")}
+      >
+        <Image source={logoImage} style={{ width: 100, height: 100 }} />
+      </Pressable>
+    </View>
+  );
+};
+
+export default index;
