@@ -8,22 +8,28 @@ import {
   Pressable,
   Modal,
 } from "react-native";
+import { useState } from "react";
 import React from "react";
 import logoImage from "../../assets/images/adaptive-icon.png";
 // import { ScrollView } from "react-native-gesture-handler";
 
 const index = () => {
+  const [isvisible, setIsVisible] = useState(false);
   return (
     <View style={{ flex: 1, backgroundColor: "#004e4e", padding: 60 }}>
+      {/* ================================TEXT AND IMAGE================================= */}
+
       {/* <View style={{width: 200, height: 300, backgroundColor: "#3e3e3e"}}></View>
       <Text style={{padding: 60}}>index <Text style={{color:"white", padding: 50}}>Nested text</Text></Text>
       <Image source={{uri: 'https://ca.slack-edge.com/T05R6LXN7J8-U06R7GRBJSD-0bb90b6f36d1-512'}} style={{width: 200, height: 200}}/> */}
 
+      {/* =====================================IMAGE BACKGROUND======================================= */}
       {/* adding image background */}
       {/* <ImageBackground source={logoImage} style={{flex: 1}}>
         <Text style={{padding: }}>this is the home page</Text>
       </ImageBackground> */}
 
+      {/* ==================================SCROLL VIEW=================================== */}
       {/* addgin scrollview */}
 
       {/* <ScrollView>
@@ -100,25 +106,68 @@ const index = () => {
         </Text>
       </ScrollView> */}
 
+      {/* ===========================================BUTTON================================================== */}
       {/* Button componenet: note that it is a self closing tag */}
 
-      <Button
+      {/* <Button
         title="press"
         onPress={() => {
           console.log("button pressed");
         }}
         color="midnightblue"
         disabled
-      />
+      /> */}
 
+      {/* ========================================PRESSABLE===================================================== */}
       {/* using pressable  */}
-      <Pressable
+      {/* <Pressable
         onPress={() => console.log("Image pressed")}
         onPressOut={() => console.log("pressing out")}
         onLongPress={() => console.log("pressed for more than 500ms")}
       >
         <Image source={logoImage} style={{ width: 100, height: 100 }} />
-      </Pressable>
+      </Pressable> */}
+
+      {/* ========================================MODAL===================================================== */}
+
+      {/* using modal component  */}
+      {/* <Button
+        title="press"
+        onPress={() => setIsVisible(true)}
+        color="midnightblue"
+      />
+      <Modal
+        visible={isvisible}
+        onRequestClose={() => setIsVisible(false)}
+        // animationType="none" the default animation type
+        animationType="slide" //slide in from the bottom
+        // animationType="fade" //modal fade in to the view
+        presentationStyle="pageSheet" //default is fullScreen. you can either use formSheet or pageSheet
+      >
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: "lightblue",
+            padding: 60,
+            marginTop: 90,
+          }}
+        >
+          <Text>Modal Content</Text>
+          <Button
+            title="close"
+            color="midnightblue"
+            onPress={() => setIsVisible(false)}
+          />
+        </View>
+      </Modal> */}
+
+      {/* ====================================STATUS BAR======================================= */}
+      {/* 
+      StatusBar allows you to control your application status bar,
+       which is the area located at the top of the screen.
+
+      it displays various information such as the current time, wifi and network information battery level and status icon
+      */}
     </View>
   );
 };
