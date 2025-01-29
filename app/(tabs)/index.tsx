@@ -14,7 +14,7 @@ import {
 import { useState } from "react";
 import React from "react";
 import logoImage from "../../assets/images/adaptive-icon.png";
-// import { ScrollView } from "react-native-gesture-handler";
+import Greet from "../components/Greet";
 
 const index = () => {
   const [isvisible, setIsVisible] = useState(false);
@@ -215,6 +215,16 @@ const index = () => {
           ])
         }
       /> */}
+
+      {/* ===========================================USING CUSTOM COMPONENT============================== */}
+      {/*
+      -created a greeting component in the component folder
+      -import in the index component folde
+      -render the component below
+       */}
+
+      {/* <Greet name="Nsem Confident" />
+      <Greet name="Ambo Miracle" /> */}
     </View>
   );
 };
