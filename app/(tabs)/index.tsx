@@ -251,6 +251,14 @@ const index = () => {
       <View style={[style.lightGreenBg, style.box]}>
         <Text>lightgreen box</Text>
       </View>
+
+      {/* style inheritance  */}
+
+      <View style={style.darkMode}>
+        <Text style={style.darkModeText}>
+          Style inheritance<Text style={style.boldText}> Bold text</Text>
+        </Text>
+      </View>
     </View>
   );
 };
@@ -271,6 +279,16 @@ export const style = StyleSheet.create({
     flex: 1,
     backgroundColor: "#004e4e",
     padding: 60,
+  },
+
+  darkMode: {
+    backgroundColor: "black",
+  },
+  darkModeText: {
+    color: "white",
+  },
+  boldText: {
+    fontWeight: "bold",
   },
   header: {
     color: "midnightblue",
