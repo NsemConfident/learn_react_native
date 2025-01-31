@@ -10,6 +10,7 @@ import {
   StatusBar,
   ActivityIndicator,
   Alert,
+  StyleSheet,
 } from "react-native";
 import { useState } from "react";
 import React from "react";
@@ -225,8 +226,32 @@ const index = () => {
 
       {/* <Greet name="Nsem Confident" />
       <Greet name="Ambo Miracle" /> */}
+
+      {/* =========================================== STYLING ============================== */}
+      {/* -react native does not use css for styling, it uses js
+      -names are written in cammel case
+      -two approaches to styling a react native componenet(inline style and using the StyleSheet api provided by react native)
+      -using the StyleSheet api allows you to write multiple styles in one place, using the create method */}
+
+      <Text style={style.header}>hello world</Text>
     </View>
   );
 };
-
 export default index;
+
+//  however this style can be used only for this file, but if you want to use this stles in another File, you have to export it
+
+// const style = StyleSheet.create({
+//   header: {
+//     color: "midnightblue",
+//     fontSize: 30
+//   }
+// })
+
+// with export
+export const style = StyleSheet.create({
+  header: {
+    color: "midnightblue",
+    fontSize: 30,
+  },
+});
