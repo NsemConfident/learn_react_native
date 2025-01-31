@@ -20,7 +20,7 @@ import Greet from "../components/Greet";
 const index = () => {
   const [isvisible, setIsVisible] = useState(false);
   return (
-    <View style={{ flex: 1, backgroundColor: "#004e4e", padding: 60 }}>
+    <View style={style.container}>
       {/* ================================TEXT AND IMAGE================================= */}
       {/* <View style={{width: 200, height: 300, backgroundColor: "#3e3e3e"}}></View>
       <Text style={{padding: 60}}>index <Text style={{color:"white", padding: 50}}>Nested text</Text></Text>
@@ -227,13 +227,30 @@ const index = () => {
       {/* <Greet name="Nsem Confident" />
       <Greet name="Ambo Miracle" /> */}
 
-      {/* =========================================== STYLING ============================== */}
+      {/* =========================================== STYLING and MULTIPLE STYLES============================== */}
       {/* -react native does not use css for styling, it uses js
       -names are written in cammel case
       -two approaches to styling a react native componenet(inline style and using the StyleSheet api provided by react native)
       -using the StyleSheet api allows you to write multiple styles in one place, using the create method */}
 
       <Text style={style.header}>hello world</Text>
+
+      {/* multiple styling  
+          for multiple styling, we use an array of style
+          it is important to know that when using multiple styling, the last style in the array takes precedence.
+      */}
+
+      <View style={[style.box, style.lightBlueBoxBg]}>
+        <Text>lightblue box</Text>
+      </View>
+      <View style={[style.box, style.lightGreenBg]}>
+        <Text>lightgreen box</Text>
+      </View>
+
+      {/*the last box it takes the background color of box it is the last styel in the array, so it overrights light green */}
+      <View style={[style.lightGreenBg, style.box]}>
+        <Text>lightgreen box</Text>
+      </View>
     </View>
   );
 };
@@ -250,8 +267,29 @@ export default index;
 
 // with export
 export const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#004e4e",
+    padding: 60,
+  },
   header: {
     color: "midnightblue",
     fontSize: 30,
+    paddingBottom: 10,
+  },
+  // with the lightblue and lightgreen box, there are some common stylings
+  // so we extract it into a new object called box
+  //
+  box: {
+    width: 100,
+    height: 100,
+    padding: 10,
+    backgroundColor: "lightpink",
+  },
+  lightBlueBoxBg: {
+    backgroundColor: "lightblue",
+  },
+  lightGreenBg: {
+    backgroundColor: "lightgreen",
   },
 });
