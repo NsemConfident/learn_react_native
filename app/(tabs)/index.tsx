@@ -1,15 +1,35 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import PrevTuto from '../components/PrevTuto'
-import Box from '../components/box'
+import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import React from "react";
+import CustomButton from "../components/customButton/CustomButton.android";
 
 const index = () => {
   return (
-    <View style={{padding: 40, paddingTop: 90}}>
-      {/* <PrevTuto /> */} 
-      <Box style={{ backgroundColor: "#1c4c56", }} children="box"/>
-    </View>
-  )
-}
+    <SafeAreaView style={style.safeArea}>
+      <View style={style.container}>
+        <Text style={style.text}>welcome</Text>
+        <CustomButton
+          title="platform button"
+          onPress={() => alert("welcome to react native")}
+        />
+      </View>
+    </SafeAreaView>
+  );
+};
 
-export default index
+export default index;
+
+const style = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "plum",
+  },
+  container: {
+    flex: 1,
+    backgroundColor: "plum",
+    padding: 30,
+    alignItems: "center",
+  },
+  text: {
+    fontSize: 24,
+  },
+});
